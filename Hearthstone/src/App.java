@@ -6,7 +6,7 @@ public class App {
     public static void main(String[] args) throws Exception {
    
         //System.out.println(combination(24, 6));
-        List<int[]> combinations = generate(24, 6);
+        List<int[]> combinations = generate(5, 3);
 
         double highest = 0;
         String remember = "";
@@ -29,50 +29,28 @@ public class App {
                     //System.out.println(1- hyperGeo(combination[i]+1, 0, 10, i+4));
                     //temp+= (1- hyperGeo(combination[i]+1, 0, 10, i+4));
                 }
-                if(max==24){
+                System.out.println(Arrays.toString(combination));
+                if(max==30){
                     for(int i=0; i<combination.length; i++)
                         {
-                            System.out.println(combination[i]);
-                            System.out.println(1- hyperGeo(combination[i]+1, 0, 30, i+4));
-                            temp+= (1- hyperGeo(combination[i]+1, 0, 10, i+4));
+                            //System.out.println(combination[i]);
+                            //System.out.println(1- hyperGeo(combination[i], 0, 30, i+4));
+                            temp+= (1- hyperGeo(combination[i], 0, 10, i+4));
                         }
                 }
                 //System.out.println();
                 if(temp>highest) {
                 highest = temp;
                     remember = Arrays.toString(combination);
+                    //System.out.println("Current highest: " + highest + " using: "+ remember);
                 }
                 
             }
+        System.out.println();
         System.out.println("highest: " + highest + " using: "+ remember);
         
-        System.out.printf("generated %d combinations of %d items from %d ", combinations.size(), 24, 6);
+        System.out.printf("generated %d combinations of %d items from %d ", combinations.size(), 30, 6);
 
-        
-        /*for (Object object : combinations) {
-            ArrayList temp = (ArrayList) object;
-            for (Object innerObject : temp) {
-                if (innerObject instanceof String[]) {
-                    printArray((String[]) innerObject);
-                } else if (innerObject instanceof Integer[]) {
-                    printArray((Integer[]) innerObject);
-                } else if (innerObject instanceof Byte[]) {
-                    printArray((Byte[]) innerObject);
-                } else if (innerObject instanceof Boolean[]) {
-                    printArray((Boolean[]) innerObject);
-                } else if (innerObject instanceof Double[]) {
-                    printArray((Double[]) innerObject);
-                }
-            }
-        }*/
-
-    }
-
-    private static void printArray(Object[] obj) {
-        for (Object ob : obj) {
-            System.out.print(ob + ",");
-        }
-        System.out.println();
     }
 
     private static void helper(List<int[]> combinations, int data[], int start, int end, int index) {
@@ -90,7 +68,7 @@ public class App {
 
     public static List<int[]> generate(int n, int r) {
         List<int[]> combinations = new ArrayList<>();
-        helper(combinations, new int[r], 0, n - 1, 0);
+        helper(combinations, new int[r], 0, n-1 , 0);
         return combinations;
     }
 
