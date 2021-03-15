@@ -6,7 +6,7 @@ public class App {
     public static void main(String[] args) throws Exception {
    
         //System.out.println(combination(24, 6));
-        List<int[]> combinations = generate(5, 3);
+        List<int[]> combinations = generate(24, 6);
 
         double highest = 0;
         String remember = "";

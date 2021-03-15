@@ -38,7 +38,7 @@ def hyperGeo(K, k, N, n):
 #print(1- hyperGeo(2, 0, 30, 4))
 
 def create():
-    stng = str(curve[0]) + "/" + str(curve[1]) + "/" + str(curve[2]) + "/" + str(curve[3]) + "/" + str(curve[4]) + "/" + str(curve[5])
+    stng = str(curve[0]) + "," + str(curve[1]) + "," + str(curve[2]) + "," + str(curve[3]) + "," + str(curve[4]) + "," + str(curve[5])
     big.append(stng) 
     i = 0
     temp = 0
@@ -62,7 +62,7 @@ print("done")
 
 for i in prob:
     if i > biggest:
-        print(str(i) + " " + big[counter])
+        print("Mana Distribution: " + big[counter] + " Sum of Probabilities: " + str(i))
         biggest = i
         index = counter
     counter+= 1
