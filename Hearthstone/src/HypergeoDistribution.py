@@ -1,9 +1,8 @@
 curve = [25,1,1,1,1,1]
-#f = open("joshua.txt", "a")
+f = open("result.txt","w")
 big = [] 
 prob = []
 sort = []
-mx = 0
 biggest = 0
 counter = 0
 index = 0
@@ -46,10 +45,6 @@ def create():
         temp += (1- hyperGeo(curve[i], 0, 30, 4+i))
         i+=1
     prob.append(temp)
-
-    #if temp>mx:
-    #    mx = temp
-    #print(mx)
     
     #f.write(stng + "\n")
 
@@ -61,10 +56,12 @@ print("done")
 #print(big)
 
 for i in prob:
+    f.write("Mana Distribution: " + big[counter] + " Sum of Probabilities: " + str(i) + "\n")
     if i > biggest:
         print("Mana Distribution: " + big[counter] + " Sum of Probabilities: " + str(i))
         biggest = i
         index = counter
     counter+= 1
-
-
+f.close()
+print()
+print("Out of " + str(len(big)) + " Mana Distributions, the most probable Mana Distribution is [" + big[index] + "], with a Sum of Probabilites of " + str(prob[index]))
