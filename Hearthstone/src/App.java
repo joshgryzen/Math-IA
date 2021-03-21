@@ -1,6 +1,5 @@
-//import java.lang.reflect.Method;
+//This doesn't work and its a mess - Java sucks :(
 import java.util.*;
-//import commons-math3-62.jar;
 
 public class App {
     public static void main(String[] args) throws Exception {

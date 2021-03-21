@@ -1,9 +1,8 @@
 curve = [25,1,1,1,1,1]
-f = open("result.txt","w")
 big = [] 
 prob = []
-sort = []
 biggest = 0
+total = 0
 counter = 0
 index = 0
 
@@ -34,8 +33,6 @@ def combination(n, r):
 def hyperGeo(K, k, N, n):
     return (combination(K, k)*combination(N-K, n-k))/combination(N, n)
 
-#print(1- hyperGeo(2, 0, 30, 4))
-
 def create():
     stng = str(curve[0]) + "," + str(curve[1]) + "," + str(curve[2]) + "," + str(curve[3]) + "," + str(curve[4]) + "," + str(curve[5])
     big.append(stng) 
@@ -45,23 +42,28 @@ def create():
         temp += (1- hyperGeo(curve[i], 0, 30, 4+i))
         i+=1
     prob.append(temp)
-    
-    #f.write(stng + "\n")
 
 while curve[5] != 25: 
     add(0)
+    total+=total
     if curve[0] + curve[1] + curve[2] + curve[3] + curve[4] + curve[5] == 30:
         create()
-print("done")
-#print(big)
 
 for i in prob:
-    f.write("Mana Distribution: " + big[counter] + " Sum of Probabilities: " + str(i) + "\n")
     if i > biggest:
         print("Mana Distribution: " + big[counter] + " Sum of Probabilities: " + str(i))
         biggest = i
         index = counter
     counter+= 1
-f.close()
 print()
 print("Out of " + str(len(big)) + " Mana Distributions, the most probable Mana Distribution is [" + big[index] + "], with a Sum of Probabilites of " + str(prob[index]))
+
+
+
+
+
+
+
+
+
+
